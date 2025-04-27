@@ -102,6 +102,8 @@ class FaceRecognitionApp:
                                       activebackground="#3949ab", activeforeground="white",
                                       bd=0, highlightthickness=0)
         self.start_button.pack(pady=10)
+        self.label = tk.Label(root)
+        self.label.pack()
 
         self.add_face_button = tk.Button(root, text="Yeni Yüz Ekle", command=add_new_face,
                                          font=("Helvetica", 14, "bold"),
@@ -150,11 +152,9 @@ class FaceRecognitionApp:
         self.video_running = True
         self.cap = cv2.VideoCapture(0)
 
-        # --- BURAYA EKLİYORUZ ---
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
         self.cap.set(cv2.CAP_PROP_FPS, 30)
-        # -------------------------
 
         self.process_frame()
 
